@@ -108,7 +108,7 @@ int main(void) {
                     cJSON *rate = cJSON_GetObjectItemCaseSensitive(data, target_currency);
                     if (rate != NULL && cJSON_IsNumber(rate)) {
                         converted_amount = amount_to_convert * rate->valuedouble;
-                        printf("%f %s is equivalent to %f %s\n", amount_to_convert, base_currency, converted_amount,
+                        printf("%.2f %s is equivalent to %.2f %s\n", amount_to_convert, base_currency, converted_amount,
                                target_currency);
                     } else {
                         printf("Failed to find rate for %s\n", target_currency);
