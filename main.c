@@ -139,19 +139,6 @@ int main(void) {
                 // think dictionary and key "data" but in C
                 cJSON *data = cJSON_GetObjectItemCaseSensitive(json, "data");
                 if (data != NULL) {
-                    // Iterate through the currencies specified and stopping at ',' eg. USD,EUR = 2 iterations
-                    // token is pointer, pointing to beginning of currency segment
-                    // replace , with null
-//                    char *token = strtok(currencies, ",");
-//                    // stops when reach last index '\0'
-//                    while(token != NULL) {
-//                        // use token to get specific exchange rate
-//                        cJSON *rate = cJSON_GetObjectItemCaseSensitive(data, token);
-//                        if(cJSON_IsNumber(rate)) {
-//                            printf("%s to %s Exchange Rate: %f\n", base_currency, token, rate->valuedouble);
-//                        }
-//                        token = strtok(NULL, ",");
-//                    }
                     cJSON *rate = cJSON_GetObjectItemCaseSensitive(data, target_currency);
                     if (rate != NULL && cJSON_IsNumber(rate)) {
                         converted_amount = amount_to_convert * rate->valuedouble;
