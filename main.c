@@ -131,7 +131,7 @@ int main(void) {
         res = curl_easy_perform(curl);
 
         if (res != CURLE_OK) {
-            printf("Curl failed\n", curl_easy_strerror(res));
+            printf("Curl failed: %s\n", curl_easy_strerror(res));
         } else {
             // Parse json to cjson struct
             cJSON *json = cJSON_Parse(s.ptr);
